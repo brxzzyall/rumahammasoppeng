@@ -21,8 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->unsignedBigInteger('order_id')->nullable(false)->change();
-        });
+        // Don't enforce NOT NULL on rollback as it might have NULL values
+        // Schema::table('reviews', function (Blueprint $table) {
+        //     $table->unsignedBigInteger('order_id')->nullable(false)->change();
+        // });
     }
 };
